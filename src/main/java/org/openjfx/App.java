@@ -11,6 +11,9 @@ import javafx.stage.Stage;
 
 public class App extends Application 
 {
+    // constants for the default window size
+    private static final int HEIGHT = 800;
+    private static final int WIDTH = 1400;
 
     @Override
     public void start(Stage primaryStage) throws Exception
@@ -24,9 +27,11 @@ public class App extends Application
         group.getChildren().add(sphere);
         
         // adding the group into a new scene
-        // - width: 1400
-        // - height: 800
-        Scene scene = new Scene(group, 1400, 800);
+        Scene scene = new Scene(group, WIDTH, HEIGHT);
+
+        // moving the sphere to the center of the scene
+        sphere.translateXProperty().set(WIDTH / 2);
+        sphere.translateYProperty().set(HEIGHT / 2);
 
         // moving the scene into primaryStage
         // -> stages are essentially the window where everything lives
